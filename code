@@ -1,0 +1,88 @@
+ //create lists
+var countries = getColumn("Countries and Territories","Country Name");
+
+
+
+onEvent("button1", "click", function( ) {
+  var x = getText("dropdown1");
+  var y = getText("text_input3");
+  for (var i = 0; i < countries.length; i++) {
+    if (y == countries[i]) {
+      if (x == "Population") {
+      setText("text_area1", "Population:" + getPopulation(y));
+      console.log(getPopulation);
+          } else if (x == "Region") {
+      setText("text_area1", "Region:" + getRegion(y));
+      console.log(getRegion);
+          } else if ((x == "Code")) {
+        setText("text_area1", "Three Letter Code:" + getCode(y));
+        console.log(getCode);
+      } else if ((x == "Income")) {
+        setText("text_area1", "Income Level:" + getIncome (y));
+        console.log(getIncome);
+      } else if ((x == "Unemployment")) {
+        setText("text_area1", "Unemployment Percentage;" + getUnemployment (y));
+        console.log(getUnemployment);
+      }
+    }
+  }
+});
+
+
+//get population of random country
+function getPopulation(countryName) {
+  var population;
+  population = getColumn("Countries and Territories", "Population");
+  for (var i = 0; i < countries.length; i++) {
+    if (countryName == countries[i]) {
+      return population[i];
+    }
+  }
+}
+
+//get region of random country
+function getRegion(countryName) {
+  var region;
+  region = getColumn("Countries and Territories", "Region");
+  for (var i = 0; i < countries.length; i++) {
+    if (countryName == countries[i]) {
+      return region[i];
+    }
+  }
+}
+
+//get income level of random country
+function getIncome(countryName) {
+  var incomelevel;
+  incomelevel = getColumn("Countries and Territories", "Income Level");
+  for (var i = 0; i < countries.length; i++) {
+    if (countryName == countries[i]) {
+      return (incomelevel[i]);
+    }
+  }
+}
+
+
+//get random county's 3 letter code
+function getCode(countryName) {
+  var code;
+  code = getColumn("Countries and Territories", "Three Leter Country Code");
+  for (var i = 0; i < countries.length; i++) {
+    if (countryName == countries[i]) {
+      return (code[i]);
+    }
+  }
+}
+
+
+//get unemployment percentage  of random country
+function getUnemployment(countryName) {
+  var unemployment;
+  unemployment = getColumn("Countries and Territories", "Unemployment");
+  for (var i = 0; i < countries.length; i++) {
+    if (countryName == countries[i]) {
+      return (unemployment[i]);
+    }
+  }
+}
+
